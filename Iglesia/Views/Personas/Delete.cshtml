@@ -1,0 +1,58 @@
+﻿@model Iglesia.Models.Persona
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('.modal-title').text('New message to ' + recipient)
+          modal.find('.modal-body input').val(recipient)
+        })
+    </script>
+<div class="card">
+    <h5 class="card-header bg-danger text-white">Seguro que quieres eliminar a esta persona?</h5>
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(model => model.nombre) @Html.DisplayFor(model => model.apellido)</h5>
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-danger">
+                  <h5 class="modal-title text-white" id="exampleModalLabel">@Html.DisplayFor(model => model.nombre) @Html.DisplayFor(model => model.apellido)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  
+              </div>
+              <div class="modal-footer">
+                  <form asp-action="Delete">
+                      <br />
+                      <input type="hidden" asp-for="PersonaId" />
+                      <input type="submit" value="Eliminar" class="btn btn-outline-danger" /> |
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form asp-action="Delete">
+            <br />
+            <input type="hidden" asp-for="PersonaId" />
+            <input type="submit" value="Eliminar" class="btn btn-outline-danger" /> |
+            <a asp-action="Index" class="btn btn-outline-dark">Volver</a> |
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
+                Detalles de la persona
+            </button>
+        </form>
+    </div>
+</div>
