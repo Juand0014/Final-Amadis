@@ -1,0 +1,14 @@
+/*Fondo cuando le das al cuadro azul XD*/
+body{
+    background: url("../img/natural.jpeg") ;
+    background-attachment: fixed;
+}
+#logo{
+    background: #1F87C4;
+}
+#menu ul li:hover{
+    background: #1F87C4;
+}
+.button-more{
+    background: #1F87C4;
+}

@@ -1,0 +1,16 @@
+/*Fondo cuando le das al cuadro verde XD*/
+body{
+    background: url("../img/verde.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#logo{
+    background: #3be657;
+}
+#menu ul li:hover{
+    background: #3be657;
+}
+.button-more{
+    background: #3be657;
+}
